@@ -77,4 +77,24 @@ public class RestControllerTest {
 		restTemplate.getForObject("http://localhost:8080/ride_tracker/batch", Object.class);
 
 	}
+	
+	@Test(timeout = 3000)
+	public void testDelete() {
+
+		RestTemplate restTemplate = new RestTemplate();
+ 
+		//this url should be updated with the last created index for the table
+		restTemplate.delete("http://localhost:8080/ride_tracker/delete/5");
+
+	}
+	
+	@Test(timeout = 3000)
+	public void testException() {
+
+		RestTemplate restTemplate = new RestTemplate();
+ 
+		
+		restTemplate.getForObject("http://localhost:8080/ride_tracker/test",Ride.class);
+
+	}
 }
